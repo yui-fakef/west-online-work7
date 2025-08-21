@@ -1,0 +1,51 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Node.js 实用技巧</title>
+  <link rel="stylesheet" href="style/main.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="/">
+        <span>我的博客</span>
+      </a>
+    </div>
+    <nav>
+      <a href="./posts/index.html">首页</a>
+    </nav>
+  </header>
+  
+  <main>
+    
+<article class="post-detail">
+  <h1>Node.js 实用技巧</h1>
+  <p class="date">发布日期: 2025-01-10</p>
+  
+  <div class="content">
+    <p>分享一些 Node.js 开发中的实用技巧。</p>
+<h3>1. 异步错误处理</h3>
+<pre><code class="language-javascript">async function fetchData() {
+  try {
+    const data = await someAsyncOperation();
+    return data;
+  } catch (error) {
+    console.error(&#39;操作失败:&#39;, error);
+    throw error;
+  }
+}
+</code></pre>
+
+  </div>
+</article>
+  </main>
+  
+  <footer>
+    <p>© 2025 我的博客 | 由 Node.js + EJS 驱动</p>
+  </footer>
+</body>
+</html>

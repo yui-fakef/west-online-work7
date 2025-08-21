@@ -1,0 +1,16 @@
+<%
+let bodyContent = `
+<article class="post-detail">
+  <h1>${post.title}</h1>
+  <p class="date">发布日期: ${post.date}</p>
+  
+  <div class="content">
+    ${post.content}
+  </div>
+</article>`;
+%>
+
+<%- include('base', { 
+  title: post.title,
+  bodyContent: bodyContent 
+}) %>

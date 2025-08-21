@@ -1,0 +1,55 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>链表数据结构详解</title>
+  <link rel="stylesheet" href="style/main.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="/">
+        <span>我的博客</span>
+      </a>
+    </div>
+    <nav>
+      <a href="./posts/index.html">首页</a>
+    </nav>
+  </header>
+  
+  <main>
+    
+<article class="post-detail">
+  <h1>链表数据结构详解</h1>
+  <p class="date">发布日期: 2025-01-30</p>
+  
+  <div class="content">
+    <p>链表是一种线性数据结构，其中的元素不是存储在连续的内存位置，而是通过指针链接在一起。</p>
+<h2>链表类型</h2>
+<ol>
+<li><strong>单向链表</strong> - 每个节点包含数据和指向下一个节点的指针</li>
+<li><strong>双向链表</strong> - 每个节点包含数据、指向前一个节点和下一个节点的指针</li>
+<li><strong>循环链表</strong> - 尾节点指向头节点，形成循环</li>
+</ol>
+<h2>基本操作</h2>
+<h3>节点定义</h3>
+<pre><code class="language-javascript">class ListNode {
+  constructor(data) {
+    this.data = data;
+    this.next = null;
+  }
+}
+</code></pre>
+
+  </div>
+</article>
+  </main>
+  
+  <footer>
+    <p>© 2025 我的博客 | 由 Node.js + EJS 驱动</p>
+  </footer>
+</body>
+</html>
