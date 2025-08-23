@@ -80,14 +80,13 @@ async function build() {
     process.exit(1);
   }
 }
-
 async function copyDir(src, dest) {
   await fs.mkdir(dest, { recursive: true });
   const entries = await fs.readdir(src, { withFileTypes: true });
   
   for (const entry of entries) {
-    const srcPath = path.join(src, entry.name);
-    const destPath = path.join(dest, entry.name);
+    const srcPath = path.join(src, entry.name);//源路径
+    const destPath = path.join(dest, entry.name);//目标路径
     
     if (entry.isDirectory()) {
       await copyDir(srcPath, destPath);
@@ -96,7 +95,6 @@ async function copyDir(src, dest) {
     }
   }
 }
-
 async function renderHome(pageData,pageNumber = 1) {
   const templatePath = path.join(TEMPLATE_DIR, 'homepage.ejs');
   const template = await fs.readFile(templatePath, 'utf-8');
@@ -104,12 +102,12 @@ async function renderHome(pageData,pageNumber = 1) {
   
   const html = ejs.render(template, { 
     posts: pageData.posts,
-    pagination:pageData
+    pagination:pageData,
   }, {
     views: [TEMPLATE_DIR]
   });
   
-   // 第一页为 index.html，其他页为 page/2/index.html
+    // 第一页为 index.html，其他页为 page/2/index.html
   let outputPath;
   if (pageNumber === 1) {
     outputPath = path.join(DIST_DIR, 'index.html');
@@ -118,7 +116,7 @@ async function renderHome(pageData,pageNumber = 1) {
     await fs.mkdir(path.dirname(outputPath), { recursive: true });
   }
   
-  await fs.writeFile(outputPath, html);
+ await fs.writeFile(outputPath, html);
 }
 async function renderPost(post) {
   const templatePath = path.join(TEMPLATE_DIR, 'detail.ejs');
@@ -128,10 +126,6 @@ async function renderPost(post) {
     views: [TEMPLATE_DIR]
   });
   
-  const postDir = path.join(DIST_POSTS_DIR, post.slug);
-  await fs.mkdir(postDir, { recursive: true });
-  
-  await fs.writeFile(path.join(postDir, 'index.html'), html);
+  await fs.writeFile(path.join(DIST_POSTS_DIR, `${post.slug}.html`), html);
 }
-
 build();

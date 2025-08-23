@@ -1,0 +1,58 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>动态规划入门指南</title>
+  <link rel="stylesheet" href="style/main.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="/">
+        <img src="public/blogt.webp" alt="博客" width="32" height="32">
+        <span>我的博客</span>
+      </a>
+    </div>
+    <nav>
+      <a href="/">首页</a>
+    </nav>
+  </header>
+  
+  <main>
+    
+<article class="post-detail">
+  <h1>动态规划入门指南</h1>
+  <p class="date">发布日期: 2025-02-10</p>
+  
+  <div class="content">
+    <p>动态规划是一种通过把原问题分解为相对简单的子问题的方式求解复杂问题的方法。</p>
+<h2>基本思想</h2>
+<ol>
+<li><strong>最优子结构</strong> - 问题的最优解包含其子问题的最优解</li>
+<li><strong>重叠子问题</strong> - 不同的子问题具有公共的子子问题</li>
+</ol>
+<h2>实现方法</h2>
+<h3>1. 自顶向下 - 记忆化搜索</h3>
+<pre><code class="language-javascript">function fibonacci(n, memo = {}) {
+  if (n in memo) return memo[n];
+  if (n &lt;= 2) return 1;
+  
+  memo[n] = fibonacci(n - 1, memo) + fibonacci(n - 2, memo);
+  return memo[n];
+}
+
+console.log(fibonacci(10)); // 55
+</code></pre>
+
+  </div>
+</article>
+  </main>
+  
+  <footer>
+    <p>© 2025 我的博客 | 由 Node.js + EJS 驱动</p>
+  </footer>
+</body>
+</html>

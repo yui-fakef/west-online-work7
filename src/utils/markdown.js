@@ -7,7 +7,7 @@ const marked = require('marked');
  * @returns {Object} { data: 元数据, content: 渲染后的HTML, excerpt: 摘要 }
  */
 function parseMarkdown(source) {
-  const { data, content } = matter(source);
+  const { data, content } = matter(source);//解析博客内容，分为元数据和内容
   const htmlContent = marked.parse(content);
   
   // 生成摘要：取第一段
