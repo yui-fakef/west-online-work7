@@ -125,7 +125,8 @@ async function renderPost(post) {
   const html = ejs.render(template, { post }, {
     views: [TEMPLATE_DIR]
   });
-  
-  await fs.writeFile(path.join(DIST_POSTS_DIR, `${post.slug}.html`), html);
+  const postDir = path.join(DIST_POSTS_DIR, post.slug);
+  await fs.mkdir(postDir, { recursive: true });
+  await fs.writeFile(path.join(postDir , `index.html`), html);
 }
 build();
